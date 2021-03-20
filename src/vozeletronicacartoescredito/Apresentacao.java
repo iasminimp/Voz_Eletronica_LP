@@ -1,9 +1,11 @@
 package vozeletronicacartoescredito;
 
+import java.io.File;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 public class Apresentacao extends javax.swing.JFrame {
@@ -11,8 +13,6 @@ public class Apresentacao extends javax.swing.JFrame {
     public Apresentacao() {
         initComponents();
     }
-
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -27,21 +27,30 @@ public class Apresentacao extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         Limite = new javax.swing.JFormattedTextField();
         Disponivel = new javax.swing.JFormattedTextField();
-        Imagem = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         setType(java.awt.Window.Type.UTILITY);
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 153));
         jLabel1.setText("Simulação de Voz Eletrônica para Operadora de Cartões de Crédito");
 
-        jLabel2.setText("Valor da Fatura(1)");
+        jLabel2.setText("Valor da Fatura (1)");
 
         ValorFatura.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,###.00"))));
         ValorFatura.setText("536,45");
+        ValorFatura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ValorFaturaActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Ouvir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -50,7 +59,7 @@ public class Apresentacao extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("DIGITE A OPÇÃO");
+        jLabel3.setText("Digite a opção:");
 
         opcao.setText("1");
 
@@ -63,9 +72,11 @@ public class Apresentacao extends javax.swing.JFrame {
 
         Disponivel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,###.00"))));
         Disponivel.setText("423,55");
-
-        Imagem.setIcon(new javax.swing.ImageIcon("C:\\VozEletronicaCartoesCredito\\cartão-de-crédito-azul.png")); // NOI18N
-        Imagem.setText("Imagem");
+        Disponivel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DisponivelActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Música");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -76,74 +87,84 @@ public class Apresentacao extends javax.swing.JFrame {
 
         jLabel6.setText("Equipe:");
 
+        jLabel7.setText("João Victor Ricardo");
+
+        jLabel8.setText("Iasmin M. Pereira");
+
+        jLabel9.setText("Jéssica Faria");
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vozeletronicacartoescredito/placeholder.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2)
-                    .addComponent(ValorFatura, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4)
-                    .addComponent(Limite, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(Disponivel))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(40, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Imagem, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(40, 40, 40))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel4)
+                                .addComponent(Limite)
+                                .addComponent(ValorFatura, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(Disponivel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(opcao, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(17, 17, 17)
-                        .addComponent(jButton1)
-                        .addGap(47, 47, 47)
-                        .addComponent(jButton2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel3)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(opcao, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(40, 40, 40))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(20, 20, 20)
                 .addComponent(jLabel1)
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ValorFatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(26, 26, 26))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton1)
-                        .addComponent(opcao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton2)))
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ValorFatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(opcao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Limite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(Disponivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(jLabel6))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(Imagem)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                        .addGap(63, 63, 63)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel9))
+                    .addComponent(jLabel10))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -161,6 +182,7 @@ public class Apresentacao extends javax.swing.JFrame {
            }
     return valor;
     }
+    
     /////////////////////////////////////////////////////////
     int ObtemInteiro(double num){
     return (int)(num);
@@ -175,50 +197,94 @@ public class Apresentacao extends javax.swing.JFrame {
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         /* Local onde devem estar os arquivos de aúdio .wav */
-        String PathAudios="C:\\VozEletronicaCartoesCredito\\Sons\\"; 
-        /* Converte para double o conteúdo do campo ValorFatura formatado em moeda */
-        double valor = ConverteMoedaDouble(ValorFatura.getText());
+        String PathAudios = System.getProperty("user.dir") + File.separator + "Sons" + File.separator;
+        
+        ExecutaSom toca; //Instanciando essa classe para tocar o 'e' quando necessário
+        toca = new ExecutaSom();
+        
         if (Integer.parseInt(opcao.getText())==1){
             try {
+                /* Converte para double o conteúdo do campo ValorFatura formatado em moeda */
+                double valor = ConverteMoedaDouble(ValorFatura.getText());
                 /* As cinco linhas a seguir tem o propósito de obter:
                 a parte inteira, decimal e tamanho da variável valor do tipo double */
                 int parte_inteira = ObtemInteiro(valor);
                 int centavos = ObtemDecimais(valor);
                 valor = (float)(parte_inteira);//Ajuste para posteriormente pegar a quantidade de dígitos da parte inteira
                 AudioValores play = new AudioValores(); // Define o objeto da Classe AudioValores
-                int tamanho=play.calculaTamanho(valor); // Pega quantidade de dígitos da parte inteira
- 
-                if (tamanho==2)/* tamanho do número igual a 2 significa que refere-se apenas a dezenas */
-                {
-                    play.audio_Dezena(valor,PathAudios);
-                    /* Executa o aúdio das dezenas */
-                    if (centavos>1)
-                    play.audio_Centavos(centavos,PathAudios);/* Executa o aúdio dos centavos */
-                }
-                else
-                if (tamanho==3)/*tamanho do número igual a 3 significa que refere-se a centenas*/
-                {
-                    play.audio_Centena(valor,PathAudios);
-                    if (centavos>1)
-                    play.audio_Centavos(centavos,PathAudios);
+                
+                if (parte_inteira>0)
+                    play.audio_Tudo(parte_inteira, PathAudios);
+                if (centavos>0){
+                    if (parte_inteira>0)
+                        toca.executaSom(PathAudios+"e.wav",false);
+                    play.audio_CentavosTeste(centavos,PathAudios);/* Executa o aúdio dos centavos */
                 }
             } catch (Exception ex) {
                 Logger.getLogger(Apresentacao.class.getName()).log(Level.SEVERE, null, ex);
             }
-    }                                
+        }
+        else if(Integer.parseInt(opcao.getText())==2){
+            try {
+                double valor = ConverteMoedaDouble(Limite.getText());
+                int parte_inteira = ObtemInteiro(valor);
+                int centavos = ObtemDecimais(valor);
+                
+                valor = (float)(parte_inteira);
+                AudioValores play = new AudioValores();
+                
+                if (parte_inteira>0)
+                    play.audio_Tudo(parte_inteira, PathAudios);
+                if (centavos>0)
+                    play.audio_CentavosTeste(centavos,PathAudios);
+            } catch (Exception ex) {
+                Logger.getLogger(Apresentacao.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else if(Integer.parseInt(opcao.getText())==3){
+            try {
+                double valor = ConverteMoedaDouble(Disponivel.getText());
+                
+                int parte_inteira = ObtemInteiro(valor);
+                int centavos = ObtemDecimais(valor);
+                valor = (float)(parte_inteira);
+                AudioValores play = new AudioValores();
+                                
+                if (parte_inteira>0)
+                    play.audio_Tudo(parte_inteira, PathAudios);
+                if (centavos>0)
+                    play.audio_CentavosTeste(centavos,PathAudios);/* Executa o aúdio dos centavos */
+            } catch (Exception ex) {
+                Logger.getLogger(Apresentacao.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else{
+            
+            JOptionPane.showMessageDialog(null, "A opção selecionada não está disponível!",
+            "Oops...", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {            
             //Nome da Música    
-            String NomeMusica="Queen"; // EraUmaVez, Queen, What Wonderful World
-            String PathAudios="C:\\VozEletronicaCartoesCredito\\Sons\\";
+            String NomeMusica="BonasseraCatuxa"; // EraUmaVez, Queen, What Wonderful World
+            String PathAudios = System.getProperty("user.dir") + File.separator + "Sons" + File.separator;
+            
             ExecutaSom play = new ExecutaSom();
-            play.executaSom(PathAudios+NomeMusica+".wav",true);
+            play.executaSom(PathAudios+NomeMusica+".wav",false);
         } catch (Exception ex) {
             Logger.getLogger(Apresentacao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void DisponivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DisponivelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DisponivelActionPerformed
+
+    private void ValorFaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValorFaturaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ValorFaturaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -257,17 +323,20 @@ public class Apresentacao extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField Disponivel;
-    private javax.swing.JLabel Imagem;
     private javax.swing.JFormattedTextField Limite;
     private javax.swing.JFormattedTextField ValorFatura;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField opcao;
     // End of variables declaration//GEN-END:variables
 }
